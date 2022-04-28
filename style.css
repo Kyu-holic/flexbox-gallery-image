@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    color: #222;
+    line-height: 1.5em;
+    font-weight: 300;
+    margin: 0;
+}
+
+a {
+    color: #222;
+    text-decoration: none;
+}
+
+.gallery {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* li들을 가로로 배치하기 위해 display:flex사용 */
+    display: flex;
+    height: 100vh;
+}
+
+.gallery li {
+    border-right: 5px solid #000;
+    /* 각각 정확하게 1의 비율로 나눠 가짐 */
+    flex: 1;
+    transition: 0.5s;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery li:last-child {
+    border-right: none;
+}
+
+.gallery li:nth-child(1) {
+    background: url(./images/artistic-image-01.jpg) no-repeat center center;
+}
+.gallery li:nth-child(2) {
+    background: url(./images/artistic-image-02.jpg) no-repeat center center;
+}
+.gallery li:nth-child(3) {
+    background: url(./images/artistic-image-03.jpg) no-repeat center center;
+}
+.gallery li:nth-child(4) {
+    background: url(./images/artistic-image-04.jpg) no-repeat center center;
+}
+.gallery li:nth-child(5) {
+    background: url(./images/artistic-image-05.jpg) no-repeat center center;
+}
+
+.gallery:hover li {
+    flex: 1;
+}
+.gallery li:hover {
+    flex: 3;
+    /* 흑백효과를 주는 것
+    다만 IE에서는 안되고, edge에서도 될까말까이기 때문에 크로스브라우징을 생각하면 사용X*/
+    filter: grayscale(1);
+}
+
+.content {
+    position: absolute;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    bottom: -300px;
+    height: 200px;
+    transition: 0.5s;
+    width: 100%;
+    padding: 20px;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+.sns a {
+    color: #333;
+}
+
+.gallery li:hover .content {
+    bottom: 0;
+    transition-delay: 0.5s;
+}
+
+.content:before {
+    content: "";
+    position: absolute;
+    background-color: #000;
+    width: 100%;
+    height: 50px;
+    left: 0;
+    top: -10px;
+    transform-origin: left bottom;
+    transform: rotate(-2.5deg) scale(1.3)
+}
